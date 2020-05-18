@@ -1,0 +1,22 @@
+<div class="card">
+    <img src="{{ user.picture }}" alt="{{  user.name }}" style="margin-top: 20px;
+    width:94px; height:94px; border-radius: 50%;">
+    <div class="container">
+        <h4><b>{{ user.name }}</b></h4>
+        <p>{{ user.email }}</p>
+        <p>{{ user.roleId }}</p>
+        <hr>
+    </div>
+    <div class="card-footer">
+        <div>
+            <div class="switch">
+                <input type="checkbox" id="switch" class="switch__input" checked>
+                <label for="switch" class="switch__label"></label>
+            </div>
+        </div>
+        <div>
+            <img src="../../../../assets/img/arrow.svg" alt="Modificar">
+            <img src="../../../../assets/img/trash.svg" alt="Eliminar usuario" (click)="deleteUser()">
+        </div>
+    </div>
+</div>

@@ -1,1 +1,94 @@
 /* You can add global styles to this file, and also import other style files */
+$color-component: #FFFFFF;
+$color-border-component: #E9E9E9;
+$color-orange: #FA6A00;
+$color-gray: #969696;
+$color-black: #131B31;
+$color-background: #f7f7f7;
+$color-gray-picture: #F4F4F4;
+$color-gray-picture-border: #DFDFDF;
+
+// Variables
+$bg-disabled-color: rgba(0, 0, 0, .26);
+$bg-enabled-color: rgba(63, 81, 181, .5);
+$lever-disabled-color: #fff;
+$lever-enabled-color: #3f51b5;
+
+
+@font-face {
+    font-family: 'CircularStdBook';
+    // src\assets\fonts\CircularStd-Book.otf
+    src: url('/assets/fonts/CircularStd-Book.otf');
+}
+
+body {
+    margin: 0;
+    padding: 15px;
+    font-family: 'CircularStdBook';
+    background: $color-background;
+}
+
+.switch {
+    display: inline-block;
+    position: relative;
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 24px;
+    
+    &__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 20px;
+        opacity: 0;
+        z-index: 0;
+    }
+    
+    // Unchecked
+    &__label {
+        display: block;
+        padding: 0 0 0 44px;
+        cursor: pointer;
+        
+        &:before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 36px;
+            height: 14px;
+            background-color: $bg-disabled-color;
+            border-radius: 14px;
+            z-index: 1;
+            transition: background-color 0.28s cubic-bezier(.4, 0, .2, 1);
+        }
+        
+        &:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: $lever-disabled-color;
+            border-radius: 14px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14),0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+            z-index: 2;
+            transition: all 0.28s cubic-bezier(.4, 0, .2, 1);
+            transition-property: left, background-color;
+        }
+    }
+    
+    // Checked
+    &__input:checked + &__label {
+        &:before {
+            background-color: $bg-enabled-color;
+        }
+        
+        &:after {
+            left: 16px;
+            background-color: $lever-enabled-color;
+        }
+    }
+}

@@ -1,0 +1,68 @@
+<div id="container-search">
+    <div class="container-search">
+        <div>
+            <input type="text" placeholder="Búsqueda">
+        </div>
+
+        <div>
+            <select name="" id="">
+                <option value="">Selecciona una opción</option>
+            </select>
+        </div>
+
+        <div>
+            <select name="" id="">
+                <option value="">Selecciona una opción</option>
+            </select>
+        </div>
+
+        <div>
+            <select name="" id="">
+                <option value="">Selecciona una opción</option>
+            </select>
+        </div>
+
+        <span class="icon icon-list" alt="Mostrar en tabla" title="Mostrar en tabla" (click)="showTableFormate()"></span>
+        <span class="icon icon-square" alt="Mostrar en tarjeta" title="Mostrar en tarjeta" (click)="showCardFormate()"></span>
+    </div>
+    <div id="container-table-result">
+        <table id="tb_user" style="width:100%; text-align: center;">
+            <tr>
+              <th>Foto</th>
+              <th>Nombre</th>
+              <th>Apellido paterno</th>
+              <th>Apellido Materno</th>
+              <th>Correo</th>
+              <th>Rol</th>
+              <th>Estatus</th>
+              <th></th>
+            </tr>
+            <div>
+    
+            </div>
+            <tr *ngFor="let userItem of users; let i = index">
+                <td> <img src="{{ userItem.picture }}" alt="{{ userItem.name }}" style="border-radius: 50%;" width="15%" height="15%"></td>
+                <td>{{ userItem.name }}</td>
+                <td>{{ userItem.fathersLastName }}</td>
+                <td>{{ userItem.mothersLastName }}</td>
+                <td>{{ userItem.email }}</td>
+                <td>{{ userItem.roleId }}</td>
+                <td>
+                    <div class="switch">
+                        <input type="checkbox" id="switch{{i}}" class="switch__input" checked>
+                        <label for="switch{{i}}" class="switch__label"></label>
+                    </div>
+                </td>
+                <td></td>
+           </tr>
+        </table>
+    </div>
+    <div id="container-card-result" style="display: none;">
+        <div style="display: grid;grid-column-gap: 50px;grid-template-columns: auto auto auto auto;">
+            <app-card  *ngFor="let userItem of users;" [user]="userItem"></app-card>
+        </div>
+    </div>
+</div>
+
+<app-dialog-add-user>    
+</app-dialog-add-user>

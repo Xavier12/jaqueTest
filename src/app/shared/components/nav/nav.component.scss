@@ -1,0 +1,65 @@
+@import '../../../../styles.scss';
+
+#container-header {
+    background-color: $color-component;
+    border: 1px solid $color-border-component;
+    display: grid;
+    grid-column-gap: 50px;
+    grid-template-columns: auto auto;
+}
+
+.icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+}
+
+#btn-show {
+    .icon-preview {
+       background-image: url('../../../../assets/img/eye.svg');
+       filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    }
+}
+
+#btn-add {
+    .icon-newuser {
+        background-image: url('../../../../assets/img/add.svg');
+        filter: invert(1);
+    }
+}
+
+#container-header div {
+    padding: 16px;
+}
+
+#container-header h3 {
+    color: $color-black;
+}
+
+#container-header p {
+    color: $color-gray;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    padding: 11px;
+    align-items: center;
+    cursor: pointer;
+
+    &.btn--orange {
+       background-color: $color-orange;
+       color: $color-component;
+    }
+
+    &.btn--white {
+        background-color: $color-component;
+        border: 1px solid $color-orange;
+        color: $color-orange;
+    }
+
+    &:hover {
+        filter: red
+    }
+}

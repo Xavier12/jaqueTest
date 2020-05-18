@@ -1,0 +1,40 @@
+<div id="modal-add" class="modal">
+    <div class="modal-content">
+        <a class="close" (click)="closeModal()">&times;</a>
+        <div>
+            <h3>Agregar usuario</h3>
+            <h4>Foto de perfil</h4>
+            <div class="modal-picture">
+                <div class="modal-picture-container">
+                    <input type="file">
+                </div>
+                <div>
+                    <p>JPG, PNG | Tamaño mínimo de 300px x 300px</p>
+                    <a id="btn-picture" class="btn btn--orange" (click)="closeModal()">
+                        <span class="btn__text">Subir foto</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h4>Agregar nuevo usuario</h4>
+        <p>información básica</p>
+        <div class="modal-form">
+            <input id="name" name="name" type="text" placeholder="Nombre" required>
+            <input id="lastNameFather" name="lastNameFather" type="text" placeholder="Apellido paterno" required>
+            <input id="lastNameMother" name="lastNameMother" type="text" placeholder="Apellido materno" required>
+            <input id="email" name="email" type="text" placeholder="Correo electrónico" required>
+            <select name="role" id="role" required>
+                <option value="">Seleccione una opción</option>
+            </select>
+        </div>
+        <div class="dialog-actions">
+            <a id="btn-show" class="btn btn--white" (click)="closeModal()">
+                <span class="btn__text">Cancelar</span>
+            </a>
+            <br>
+            <a id="btn-add" class="btn btn--orange">
+                <span class="btn__text">Guardar usuario</span>
+            </a>
+        </div>
+    </div>
+</div>
