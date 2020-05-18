@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
+  showDialodAddUser = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -15,6 +15,10 @@ export class NavComponent implements OnInit {
   showDialog(): void {
     let modal = document.getElementById("modal-add");
     modal.style.display = "block";
+  }
+
+  showAddDialog(): void {
+    this.showDialodAddUser = true;
   }
 
 }
