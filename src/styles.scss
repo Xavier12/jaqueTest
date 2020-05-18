@@ -1,23 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-$color-component: #FFFFFF;
-$color-border-component: #E9E9E9;
-$color-orange: #FA6A00;
-$color-gray: #969696;
-$color-black: #131B31;
-$color-background: #f7f7f7;
-$color-gray-picture: #F4F4F4;
-$color-gray-picture-border: #DFDFDF;
-
-// Variables
-$bg-disabled-color: rgba(0, 0, 0, .26);
-$bg-enabled-color: rgba(63, 81, 181, .5);
-$lever-disabled-color: #fff;
-$lever-enabled-color: #3f51b5;
-
+@import 'colors.scss';
 
 @font-face {
     font-family: 'CircularStdBook';
-    // src\assets\fonts\CircularStd-Book.otf
     src: url('/assets/fonts/CircularStd-Book.otf');
 }
 

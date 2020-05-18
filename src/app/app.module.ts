@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule }   from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NavComponent } from './shared/components/nav/nav.component';
 import { ResultsTableComponent } from './shared/components/results-table/results-table.component';
@@ -18,8 +19,9 @@ import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.compon
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ export interface User {
     email: string;
     roleId: number;
     active: boolean;
+    roleName?: string;
 }
 
 export interface UserArray {

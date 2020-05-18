@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import '../../../../colors.scss';
 
 #container-header {
     background-color: $color-component;
@@ -6,6 +6,12 @@
     display: grid;
     grid-column-gap: 50px;
     grid-template-columns: auto auto;
+
+    .container-button {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
 
 .icon {

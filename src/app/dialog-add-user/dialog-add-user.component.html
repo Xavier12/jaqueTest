@@ -19,20 +19,25 @@
         <h4>Agregar nuevo usuario</h4>
         <p>información básica</p>
         <div class="modal-form">
-            <input id="name" name="name" type="text" placeholder="Nombre" required>
-            <input id="lastNameFather" name="lastNameFather" type="text" placeholder="Apellido paterno" required>
-            <input id="lastNameMother" name="lastNameMother" type="text" placeholder="Apellido materno" required>
-            <input id="email" name="email" type="text" placeholder="Correo electrónico" required>
-            <select name="role" id="role" required>
-                <option value="">Seleccione una opción</option>
+            <input id="name" name="name" type="text" placeholder="Nombre" #name="ngModel" [(ngModel)]="user.name" required>
+            <input id="fathersLastName" name="fathersLastName" type="text" #fathersLastName="ngModel" [(ngModel)]="user.fathersLastName" placeholder="Apellido paterno" required>
+            <input id="mothersLastName" name="mothersLastName" type="text" #mothersLastName="ngModel" [(ngModel)]="user.mothersLastName" placeholder="Apellido materno" required>
+            <input id="email" name="email" type="text"  #email="ngModel" [(ngModel)]="user.email" placeholder="Correo electrónico" required>
+            <select name="role" id="role" #roleId="ngModel" [(ngModel)]="user.roleId" required>
+                <option value="0">Seleccione una opción</option>
+                <option [value]="roleItem.id" *ngFor="let roleItem of rolesList">{{ roleItem.position }}</option>
             </select>
+            <div class="switch">
+                <input type="checkbox" id="switch" class="switch__input" name="active" #active="ngModel" [(ngModel)]="user.active">
+                <label for="switch" class="switch__label">Activo</label>
+            </div>
         </div>
         <div class="dialog-actions">
             <a id="btn-show" class="btn btn--white" (click)="closeModal()">
                 <span class="btn__text">Cancelar</span>
             </a>
             <br>
-            <a id="btn-add" class="btn btn--orange">
+            <a id="btn-add" class="btn btn--orange" (click)="saveUser()">
                 <span class="btn__text">Guardar usuario</span>
             </a>
         </div>

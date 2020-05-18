@@ -25,22 +25,26 @@ export class ResultsTableComponent implements OnInit {
     //     return this.userService.getRoles()
     //   }),
     // )
-    .subscribe(res => {
-      this.users = res;
-      console.log(res);
+    .subscribe(userList => {
+      this.showUsers(userList)
     },
     err => {
       console.log(err);
     });
+  }
 
-
-    // this.userService.getRoles()
-    // .subscribe(res => {
-    //   console.log(res)
-    // },
-    // err => {
-    //   console.log(err);
-    // });
+  showUsers(userList: User[]): void {
+    this.userService.getRoles()
+    .subscribe(rolesList => {
+      this.users = userList.map(userItem => {
+        const positionMatch = rolesList.find(roleitem => roleitem.id === userItem.roleId)
+        userItem.roleName = positionMatch.position;
+        return userItem;
+      });
+    },
+    err => {
+      console.log(err);
+    });
   }
 
   showTableFormate(): void {  

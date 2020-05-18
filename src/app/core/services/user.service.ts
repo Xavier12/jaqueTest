@@ -41,7 +41,7 @@ export class UserService {
   }
 
   // Get all roles
-  getRoles(userId: number) {
+  getRoles() {
     return this.http.get<RoleArray>(`${environment.serviceUrl}${this._jsonRol}`)
     .pipe(
       map((res: RoleArray) => res.roles,

@@ -1,3 +1,5 @@
+@import '../../../../colors.scss';
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -14,6 +16,33 @@
     
     .container {
         padding: 2px 16px;
+
+        hr {
+            border-color: $color-border-component;
+        }
+    }
+
+    img {
+        margin-top: 20px;
+        width:94px; 
+        height:94px; 
+        border-radius: 50%;
+    }
+
+    .icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        background-size: cover;
+        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    }
+    
+    .icon-modify {
+        background-image: url('../../../../assets/img/web.svg');
+    }
+
+    .icon-delete {
+        background-image: url('../../../../assets/img/trash.svg');
     }
 }
 
