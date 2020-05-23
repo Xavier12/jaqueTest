@@ -1,13 +1,14 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/core/model/user.model';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  selector: 'app-user-card',
+  templateUrl: './user-card.component.html',
+  styleUrls: ['./user-card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class UserCardComponent implements OnInit {
   @Input() user: User;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,4 +20,5 @@ export class CardComponent implements OnInit {
       alert('Registro Eliminado!')
     }
   }
+
 }

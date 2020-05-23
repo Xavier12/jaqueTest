@@ -38,9 +38,6 @@
               <th>Estatus</th>
               <th></th>
             </tr>
-            <div>
-    
-            </div>
             <tr *ngFor="let userItem of users; let i = index">
                 <td> <img src="{{ userItem.picture }}" alt="{{ userItem.name }}" style="border-radius: 50%;" width="15%" height="15%"></td>
                 <td>{{ userItem.name }}</td>
@@ -60,7 +57,7 @@
     </div>
     <div id="container-card-result">
         <div class="container-card-element">
-            <app-card  *ngFor="let userItem of users;" [user]="userItem"></app-card>
+            <app-user-card  *ngFor="let userItem of users;" [user]="userItem"></app-user-card>
         </div>
     </div>
 </div>

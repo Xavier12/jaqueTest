@@ -12,11 +12,6 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showDialog(): void {
-    let modal = document.getElementById("modal-add");
-    modal.style.display = "block";
-  }
-
   showAddDialog(): void {
     this.showDialodAddUser = true;
   }

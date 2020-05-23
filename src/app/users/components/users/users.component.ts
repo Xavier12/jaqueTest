@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../core/services/user.service';
 import { User } from 'src/app/core/model/user.model';
-import { switchMap } from 'rxjs/operators';
-
+import { UserService } from 'src/app/core/services/user.service';
 
 @Component({
-  selector: 'app-results-table',
-  templateUrl: './results-table.component.html',
-  styleUrls: ['./results-table.component.scss']
+  selector: 'app-users',
+  templateUrl: './users.component.html',
+  styleUrls: ['./users.component.scss']
 })
-export class ResultsTableComponent implements OnInit {
+export class UsersComponent implements OnInit {
   users: User[];
   constructor(
     private userService: UserService
