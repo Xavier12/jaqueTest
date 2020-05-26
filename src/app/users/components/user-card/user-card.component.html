@@ -1,5 +1,8 @@
 <div class="card">
-    <img src="{{ user.picture }}" alt="{{  user.name }}">
+    <div style="height: 135px;width: 100%;overflow: hidden;position: relative;">
+        <img [src]="user.picture" [alt]="user.name" [title]="user.name" style="position: absolute;top: 50%;
+        left: 50%; transform: translate(-50%, -50%);"> 
+    </div>
     <div class="container">
         <h4><b>{{ user.name }}</b></h4>
         <p>{{ user.email }}</p>

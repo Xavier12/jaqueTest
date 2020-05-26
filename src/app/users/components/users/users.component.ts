@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/model/user.model';
 import { UserService } from 'src/app/core/services/user.service';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-users',
@@ -9,10 +10,11 @@ import { UserService } from 'src/app/core/services/user.service';
 })
 export class UsersComponent implements OnInit {
   users: User[];
+  displayDataTableFormat: boolean
   constructor(
     private userService: UserService
-  ) { 
-  
+  ) {
+    this.displayDataTableFormat = true;
   }
 
   ngOnInit(): void {
@@ -46,19 +48,40 @@ export class UsersComponent implements OnInit {
   }
 
   showTableFormate(): void {  
-    const card = document.getElementById('container-card-result');
-    card.style.display = 'none';
-
-    const table = document.getElementById('container-table-result');
-    table.style.display = 'block';
+    this.displayDataTableFormat = true;
   }
 
   showCardFormate(): void {
-    const table = document.getElementById('container-table-result');
-    table.style.display = 'none';
+    this.displayDataTableFormat = false;
+  }
 
-    const card = document.getElementById('container-card-result');
-    card.style.display = 'block';
+  searchUsersTable(event: KeyboardEvent) {
+    const inputValue = ((event.target as HTMLInputElement).value).toUpperCase();
+    let tr = document.getElementById('table-body').getElementsByTagName('tr');
+
+    for (let i = 0; i < tr.length; i++) {
+      const name = tr[i].getElementsByTagName('td')[1];
+      const email = tr[i].getElementsByTagName('td')[4];
+
+      const nameText = name.textContent || name.innerText;
+      const emailText = email.textContent || email.innerText;
+      
+      if (nameText.toUpperCase().indexOf(inputValue)> -1 || emailText.toUpperCase().indexOf(inputValue)> -1) {
+        tr[i].style.display = '';
+      } else {
+        tr[i].style.display = 'none';
+      }
+    }
+  }
+
+  changeByOrder(event: KeyboardEvent) {
+    
+  }
+
+  changeOrder() {
+    this.users.sort((a, b) => {
+      return b.name.localeCompare(a.name);
+    });
   }
 
 }

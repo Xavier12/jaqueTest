@@ -1,8 +1,12 @@
 @import '../../../../colors.scss';
 
-#container-card-result {
-    display: none;
+.img-table {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
 
+#container-card-result {
     .container-card-element {
         display: grid;
         grid-column-gap: 50px;
@@ -20,6 +24,10 @@
     width: 24px;
     height: 24px;
     background-size: cover;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
 }
 
 .icon-list {
@@ -77,10 +85,15 @@
             filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
         }
     }
-    
-    table,  tr {
-        border: 1px solid $color-border-component;
-        border-collapse: collapse;
-        height: 64px;
+
+    #container-table-result {
+        overflow-x: auto;
+
+        table,  tr {
+            border: 1px solid $color-border-component;
+            border-collapse: collapse;
+            height: 64px;
+        }
     }
+    
 }

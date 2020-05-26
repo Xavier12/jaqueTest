@@ -1,61 +1,66 @@
 <div id="container-search">
     <div class="container-search">
         <div style="position: relative;">
-            <input type="text" placeholder="Búsqueda">
+            <input type="text" placeholder="Búsqueda" (keyup)="searchUsersTable($event)">
             <span class="icon-search" alt="Búscar" title="Búscar"></span>
         </div>
 
         <div>
             <select name="" id="">
-                <option value="">Selecciona una opción</option>
+                <option value="">8 por página</option>
             </select>
         </div>
 
         <div>
-            <select name="" id="">
-                <option value="">Selecciona una opción</option>
+            <select name="" id="" (change)="changeOrder()">
+                <option value="0">Ordernar de A-Z</option>
+                <option value="1">Ordernar de Z-A</option>
             </select>
         </div>
 
         <div>
-            <select name="" id="">
-                <option value="">Selecciona una opción</option>
+            <select name="" id="" (change)="changeByOrder()">
+                <option value="0">Todos</option>
+                <option value="1">Activo</option>
+                <option value="2">Inactivo</option>
             </select>
         </div>
 
-        <span class="icon icon-list" alt="Mostrar en tabla" title="Mostrar en tabla" (click)="showTableFormate()"></span>
-        <span class="icon icon-square" alt="Mostrar en tarjeta" title="Mostrar en tarjeta" (click)="showCardFormate()"></span>
+        <button class="icon icon-list" alt="Mostrar en tabla" title="Mostrar en tabla" (click)="showTableFormate()"></button>
+        <button class="icon icon-square" alt="Mostrar en tarjeta" title="Mostrar en tarjeta" (click)="showCardFormate()"></button>
     </div>
-    <div id="container-table-result">
+    <div id="container-table-result" *ngIf="displayDataTableFormat">
         <table id="tb_user">
             <tr>
               <th>Foto</th>
               <th>Nombre</th>
               <th>Apellido paterno</th>
-              <th>Apellido Materno</th>
+              <th>Apellido materno</th>
               <th>Correo</th>
               <th>Rol</th>
               <th>Estatus</th>
               <th></th>
             </tr>
-            <tr *ngFor="let userItem of users; let i = index">
-                <td> <img src="{{ userItem.picture }}" alt="{{ userItem.name }}" style="border-radius: 50%;" width="15%" height="15%"></td>
-                <td>{{ userItem.name }}</td>
-                <td>{{ userItem.fathersLastName }}</td>
-                <td>{{ userItem.mothersLastName }}</td>
-                <td>{{ userItem.email }}</td>
-                <td>{{ userItem.roleName }}</td>
-                <td>
-                    <div class="switch">
-                        <input type="checkbox" id="switch{{i}}" class="switch__input" [checked]="userItem.active">
-                        <label for="switch{{i}}" class="switch__label"></label>
-                    </div>
-                </td>
-                <td></td>
-           </tr>
+            <tbody id="table-body">
+                <tr *ngFor="let userItem of users; let i = index">
+                    <td><img [src]="userItem.picture" [alt]="userItem.name" [title]="userItem.name" class="img-table"></td>
+                    <td>{{ userItem.name }}</td>
+                    <td>{{ userItem.fathersLastName }}</td>
+                    <td>{{ userItem.mothersLastName }}</td>
+                    <td>{{ userItem.email }}</td>
+                    <td>{{ userItem.roleName }}</td>
+                    <td>
+                        <div class="switch">
+                            <input type="checkbox" id="switch{{i}}" class="switch__input" [checked]="userItem.active">
+                            <label for="switch{{i}}" class="switch__label"></label>
+                        </div>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
         </table>
     </div>
-    <div id="container-card-result">
+    <div id="container-card-result" *ngIf="!displayDataTableFormat">
         <div class="container-card-element">
             <app-user-card  *ngFor="let userItem of users;" [user]="userItem"></app-user-card>
         </div>
