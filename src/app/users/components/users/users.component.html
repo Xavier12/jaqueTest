@@ -1,3 +1,4 @@
+<app-nav (addUser)=updateListUser($event)></app-nav>
 <div id="container-search">
     <div class="container-search">
         <div style="position: relative;">
@@ -19,7 +20,7 @@
         </div>
 
         <div>
-            <select name="" id="" (change)="changeByOrder()">
+            <select name="" id="">
                 <option value="0">Todos</option>
                 <option value="1">Activo</option>
                 <option value="2">Inactivo</option>

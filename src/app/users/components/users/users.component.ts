@@ -26,7 +26,7 @@ export class UsersComponent implements OnInit {
     //   }),
     // )
     .subscribe(userList => {
-      this.showUsers(userList)
+      this.showUsers(userList);
     },
     err => {
       console.log(err);
@@ -78,10 +78,15 @@ export class UsersComponent implements OnInit {
     
   }
 
-  changeOrder() {
+  changeOrder(): void {
     this.users.sort((a, b) => {
       return b.name.localeCompare(a.name);
     });
+  }
+
+  updateListUser(userItem: User): void {
+    this.users.push(userItem);
+    this.showUsers(this.users);
   }
 
 }

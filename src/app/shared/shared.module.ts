@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavComponent } from './components/nav/nav.component';
+import { DialogAddUserComponent } from './components/dialog-add-user/dialog-add-user.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    NavComponent
+    NavComponent,
+    DialogAddUserComponent
   ],
   exports: [
-    NavComponent
+    NavComponent,
+    DialogAddUserComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

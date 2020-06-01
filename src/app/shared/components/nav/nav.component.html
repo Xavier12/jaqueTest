@@ -17,5 +17,4 @@
     </div>
 </div>
 <br>
-
-<!-- <app-dialog-add-user [hidden]="!showAddDialog"></app-dialog-add-user> -->
+<app-dialog-add-user  (userToSave)="saveUser($event)" (closeDialog)="clickProduct($event)" *ngIf="showDialodAddUser"></app-dialog-add-user>

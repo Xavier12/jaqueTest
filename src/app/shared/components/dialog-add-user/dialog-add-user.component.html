@@ -1,0 +1,72 @@
+<div id="modal-add" class="modal">
+    <div class="modal-content">
+        <a class="close" (click)="closeModal()">&times;</a>
+        <form #userForm="ngForm">
+            <div>
+                <h3>Agregar usuario</h3>
+                <h4>Foto de perfil</h4>
+                <div class="modal-picture">
+                    <div class="modal-picture-container">
+                        <img [src]="user.picture" alt="" />
+                    </div>
+                    <div>
+                        <p>JPG, PNG | Tamaño mínimo de 300px x 300px</p>
+                        <input type="file" class="custom-file-input" (change)="readURL($event);" accept="image/*">
+                    </div>
+                </div>
+            </div>
+            <h4>Agregar nuevo usuario</h4>
+            <p>información básica</p>
+            <div class="modal-form">
+                <div class="form-control">
+                    <input id="name" name="name" type="text" placeholder="Nombre" #name="ngModel" [(ngModel)]="user.name" required>
+                    <span *ngIf="(name.invalid && name.touched)" class="validation">
+                        Nombre es requerido
+                    </span>
+                </div>
+                <div class="form-control">
+                    <input id="fathersLastName" name="fathersLastName" type="text" #fathersLastName="ngModel" [(ngModel)]="user.fathersLastName" placeholder="Apellido paterno" required>
+                    <span *ngIf="(fathersLastName.invalid && fathersLastName.touched)" class="validation">
+                        Apellido paterno es requerido
+                    </span>
+                </div>
+                <div class="form-control">
+                    <input id="mothersLastName" name="mothersLastName" type="text" #mothersLastName="ngModel" [(ngModel)]="user.mothersLastName" placeholder="Apellido materno" required>
+                    <span *ngIf="(mothersLastName.invalid && mothersLastName.touched)" class="validation">
+                        Apellido materno es requerido
+                    </span>
+                </div>
+                <div class="form-control">
+                    <input id="email" name="email" type="text"  #email="ngModel" [(ngModel)]="user.email" placeholder="Correo electrónico" required>
+                    <span *ngIf="(email.invalid && email.touched)" class="validation">
+                        Email es requerido
+                    </span>
+                </div>
+                <div class="form-control">
+                    <select name="roleId" id="roleId" #roleId="ngModel" [(ngModel)]="user.roleId" required>
+                        <option [ngValue]="0">Seleccione una opción</option>
+                        <option [ngValue]="roleItem.id" *ngFor="let roleItem of rolesList">{{ roleItem.position }}</option>
+                    </select> <br>
+                    <span *ngIf="(roleId.invalid && roleId.touched)" class="validation">
+                        Rol es requerido
+                    </span>
+                </div>
+                <div>
+                    <div class="switch">
+                        <input type="checkbox" id="switch" class="switch__input" name="active" #active="ngModel" [(ngModel)]="user.active">
+                        <label for="switch" class="switch__label">Activo</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="dialog-actions">
+            <a id="btn-show" class="btn btn--white" (click)="closeModal()">
+                <span class="btn__text">Cancelar</span>
+            </a>
+            <br>
+            <button id="btn-add" class="btn btn--orange" (click)="saveUser()" [disabled]="userForm.invalid" style="border: none; outline: none;">
+                <span class="btn__text">Guardar usuario</span>
+            </button>
+        </div>
+    </div>
+</div>
