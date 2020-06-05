@@ -1,34 +1,32 @@
 <app-nav (addUser)=updateListUser($event)></app-nav>
 <div id="container-search">
-    <div class="container-search">
-        <div style="position: relative;">
-            <input type="text" placeholder="Búsqueda" (keyup)="searchUsersTable($event)">
-            <span class="icon-search" alt="Búscar" title="Búscar"></span>
-        </div>
-
-        <div>
-            <select name="" id="">
-                <option value="">8 por página</option>
-            </select>
-        </div>
-
-        <div>
-            <select name="" id="" (change)="changeOrder()">
-                <option value="0">Ordernar de A-Z</option>
-                <option value="1">Ordernar de Z-A</option>
-            </select>
-        </div>
-
-        <div>
-            <select name="" id="">
-                <option value="0">Todos</option>
-                <option value="1">Activo</option>
-                <option value="2">Inactivo</option>
-            </select>
-        </div>
-
-        <button class="icon icon-list" alt="Mostrar en tabla" title="Mostrar en tabla" (click)="showTableFormate()"></button>
-        <button class="icon icon-square" alt="Mostrar en tarjeta" title="Mostrar en tarjeta" (click)="showCardFormate()"></button>
+    <div>
+        <form #searchForm="ngForm" class="container-search">
+            <div style="position: relative;">
+                <input id="searchByName" name="searchByName" #searchByName="ngModel" [(ngModel)]="formData.searchByName" type="text" placeholder="Búsqueda">
+                <span class="icon-search" alt="Búscar" title="Búscar"></span>
+            </div>
+            <div>
+                <select name="" id="">
+                    <option value="">8 por página</option>
+                </select>
+            </div>
+            <div>
+                <select id="orderByName" name="orderByName" placeholder="Nombre" #orderByName="ngModel" [(ngModel)]="formData.orderByName">
+                    <option [ngValue]="0">Ordernar de A-Z</option>
+                    <option [ngValue]="1">Ordernar de Z-A</option>
+                </select>
+            </div>
+            <div>
+                <select id="orderByStatus" name="orderByStatus" #orderByStatus="ngModel" [(ngModel)]="formData.orderByStatus">
+                    <option [ngValue]="0">Todos</option>
+                    <option [ngValue]="1">Activo</option>
+                    <option [ngValue]="2">Inactivo</option>
+                </select>
+            </div>
+            <button class="icon icon-list" alt="Mostrar en tabla" title="Mostrar en tabla" (click)="showTableFormate()"></button>
+            <button class="icon icon-square" alt="Mostrar en tarjeta" title="Mostrar en tarjeta" (click)="showCardFormate()"></button>
+        </form>
     </div>
     <div id="container-table-result" *ngIf="displayDataTableFormat">
         <table id="tb_user">
@@ -43,7 +41,7 @@
               <th></th>
             </tr>
             <tbody id="table-body">
-                <tr *ngFor="let userItem of users; let i = index">
+                <tr *ngFor="let userItem of users | tableFilterOrderName: formData.orderByName |tableFilterName: formData.searchByName | tableFilterStatus: formData.orderByStatus ; let i = index">
                     <td><img [src]="userItem.picture" [alt]="userItem.name" [title]="userItem.name" class="img-table"></td>
                     <td>{{ userItem.name }}</td>
                     <td>{{ userItem.fathersLastName }}</td>
@@ -63,7 +61,7 @@
     </div>
     <div id="container-card-result" *ngIf="!displayDataTableFormat">
         <div class="container-card-element">
-            <app-user-card  *ngFor="let userItem of users;" [user]="userItem"></app-user-card>
+            <app-user-card  *ngFor="let userItem of users  | tableFilterOrderName: formData.orderByName |tableFilterName: formData.searchByName | tableFilterStatus: formData.orderByStatus;" [user]="userItem"></app-user-card>
         </div>
     </div>
 </div>

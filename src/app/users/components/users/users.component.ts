@@ -10,7 +10,12 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  displayDataTableFormat: boolean
+  displayDataTableFormat: boolean;
+  formData = {
+    searchByName: '',
+    orderByName: 0,
+    orderByStatus: 0
+  };
   constructor(
     private userService: UserService
   ) {
@@ -53,35 +58,6 @@ export class UsersComponent implements OnInit {
 
   showCardFormate(): void {
     this.displayDataTableFormat = false;
-  }
-
-  searchUsersTable(event: KeyboardEvent) {
-    const inputValue = ((event.target as HTMLInputElement).value).toUpperCase();
-    let tr = document.getElementById('table-body').getElementsByTagName('tr');
-
-    for (let i = 0; i < tr.length; i++) {
-      const name = tr[i].getElementsByTagName('td')[1];
-      const email = tr[i].getElementsByTagName('td')[4];
-
-      const nameText = name.textContent || name.innerText;
-      const emailText = email.textContent || email.innerText;
-      
-      if (nameText.toUpperCase().indexOf(inputValue)> -1 || emailText.toUpperCase().indexOf(inputValue)> -1) {
-        tr[i].style.display = '';
-      } else {
-        tr[i].style.display = 'none';
-      }
-    }
-  }
-
-  changeByOrder(event: KeyboardEvent) {
-    
-  }
-
-  changeOrder(): void {
-    this.users.sort((a, b) => {
-      return b.name.localeCompare(a.name);
-    });
   }
 
   updateListUser(userItem: User): void {
