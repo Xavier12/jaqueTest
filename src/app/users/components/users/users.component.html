@@ -54,7 +54,10 @@
                             <label for="switch{{i}}" class="switch__label"></label>
                         </div>
                     </td>
-                    <td></td>
+                    <td>
+                        <button class="button-action update" title="Modificar"></button>
+                        <button class="button-action delete" title="Eliminar" (click)="userDelete(userItem.email)"></button>
+                    </td>
                 </tr>
             </tbody>
         </table>

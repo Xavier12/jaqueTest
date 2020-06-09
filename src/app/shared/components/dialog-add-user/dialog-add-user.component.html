@@ -59,13 +59,13 @@
                 </div>
             </div>
         </form>
-        <div class="dialog-actions">
-            <a id="btn-show" class="btn btn--white" (click)="closeModal()">
-                <span class="btn__text">Cancelar</span>
-            </a>
+        <div class="modal-actions">
+            <button id="btn-show" class="btn btn--white" (click)="closeModal()">
+                <span>Cancelar</span>
+            </button>
             <br>
-            <button id="btn-add" class="btn btn--orange" (click)="saveUser()" [disabled]="userForm.invalid" style="border: none; outline: none;">
-                <span class="btn__text">Guardar usuario</span>
+            <button id="btn-add" class="btn btn--orange" (click)="saveUser()" [disabled]="userForm.invalid">
+                <span>Guardar usuario</span>
             </button>
         </div>
     </div>

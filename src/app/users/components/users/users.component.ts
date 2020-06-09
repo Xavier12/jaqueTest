@@ -65,4 +65,10 @@ export class UsersComponent implements OnInit {
     this.showUsers(this.users);
   }
 
+  userDelete(emailUser: string): void {
+    if (confirm(`¿Desea eliminar el registro con email ${emailUser}?`)) {
+      this.users = this.users.filter(userItem => userItem.email !== emailUser);
+    }
+  }
+
 }

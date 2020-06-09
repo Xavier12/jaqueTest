@@ -30,7 +30,6 @@ body {
         z-index: 0;
     }
     
-    // Unchecked
     &__label {
         display: block;
         padding: 0 0 0 44px;
@@ -65,7 +64,6 @@ body {
         }
     }
     
-    // Checked
     &__input:checked + &__label {
         &:before {
             background-color: $bg-enabled-color;
@@ -76,4 +74,11 @@ body {
             background-color: $lever-enabled-color;
         }
     }
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
 }

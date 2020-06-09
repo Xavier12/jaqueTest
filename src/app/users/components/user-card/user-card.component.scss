@@ -8,12 +8,21 @@
     margin-bottom: 20px;
     padding-bottom: 15px;
     word-wrap: break-word;
-    
-    .card-footer {
+
+    .card-image-container {
+        width: 100%;
         display: flex;
-        justify-content: space-around;
+        align-items: center;
+        justify-content: center;
     }
-    
+
+    .card-image-container img {
+        margin-top: 20px;
+        width: 94px; 
+        height: 94px; 
+        border-radius: 50%;
+    }
+
     .container {
         padding: 2px 16px;
 
@@ -21,27 +30,24 @@
             border-color: $color-border-component;
         }
     }
-
-    img {
-        margin-top: 20px;
-        width:94px; 
-        height:94px; 
-        border-radius: 50%;
+    
+    .card-footer {
+        display: flex;
+        justify-content: space-around;
     }
 
-    .icon {
+    .button-action {
         display: inline-block;
         width: 24px;
         height: 24px;
-        background-size: cover;
-        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+        filter: $color-orange-filter;
     }
     
-    .icon-modify {
+    .button-action.icon-modify {
         background-image: url('../../../../assets/img/web.svg');
     }
 
-    .icon-delete {
+    .button-action.icon-delete {
         background-image: url('../../../../assets/img/trash.svg');
     }
 }

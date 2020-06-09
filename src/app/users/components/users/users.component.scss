@@ -8,14 +8,15 @@
 
 #container-card-result {
     .container-card-element {
-        display: grid;
-        grid-column-gap: 50px;
-        grid-template-columns: auto auto auto auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0px 64px;
     }
 }
 
 #tb_user {
-    width:100%; 
+    width: 100%; 
     text-align: center;
 }
 
@@ -24,29 +25,24 @@
     width: 24px;
     height: 24px;
     background-size: cover;
-    border: none;
-    outline: none;
-    background-color: transparent;
     cursor: pointer;
 }
 
-.icon-list {
+.icon.icon-list {
     background-image: url('../../../../assets/img/list.svg');
     
     &:hover,
-    &:focus,
-    &:active {
-        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    &:focus {
+        filter: $color-orange-filter;
     }
 }
 
-.icon-square {
+.icon.icon-square {
     background-image: url('../../../../assets/img/square.svg');
     
     &:hover,
-    &:focus,
-    &:active {
-        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    &:focus {
+        filter: $color-orange-filter;
     }
 }
 
@@ -55,14 +51,16 @@
     border: 1px solid $color-border-component;
     
     .container-search {
-        padding: 20px 0px;
+        padding: 20px 64px;
         display: flex;  
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
 
         input, select {
             border: 1px solid $color-border-component;
             padding: 14px;
+            background-color: $color-background-input;
         }
 
         span {
@@ -82,7 +80,7 @@
             top: 13px;
             left: 10px;
             background-image: url('../../../../assets/img/search.svg');
-            filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+            filter: $color-orange-filter;
         }
     }
 
@@ -95,5 +93,25 @@
             height: 64px;
         }
     }
-    
+}
+
+.button-action {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 10px;
+    background-size: 15px 15px;
+    cursor: pointer;
+
+    &:hover {
+        filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    }
+}
+
+.button-action.update {
+    background-image: url('../../../../assets/img/web.svg');
+}
+
+.button-action.delete {
+    background-image: url('../../../../assets/img/trash.svg');
 }
