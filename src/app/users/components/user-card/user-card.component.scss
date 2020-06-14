@@ -36,18 +36,18 @@
         justify-content: space-around;
     }
 
-    .button-action {
+    .btn {
         display: inline-block;
         width: 24px;
         height: 24px;
         filter: $color-orange-filter;
     }
     
-    .button-action.icon-modify {
+    .btn.icon-modify {
         background-image: url('../../../../assets/img/web.svg');
     }
 
-    .button-action.icon-delete {
+    .btn.icon-delete {
         background-image: url('../../../../assets/img/trash.svg');
     }
 }
